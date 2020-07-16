@@ -55,11 +55,39 @@ API endpoints are requested by Ajax in the frontend.
 - Get Employees with Allowance Data
   `GET /api/allowance`
 
-  <br/>
-  will return all allowance data
+  
+  Response:
+  ```
+  [{
+    id: int
+    employee: string
+    transport: string
+    distance: int
+    workdays: int
+  },
+  {
+    id: int
+    employee: string
+    transport: string
+    distance: int
+    workdays: int
+  }...]
 
 - Get one Employee by id
-  `GET /api/allowance/:id`
+  
+  Response:
+  ```
+  {
+    [
+      {
+      id: id
+      employee: string
+      transport: string
+      distance: int
+      workdays: int
+      }
+    ]
+  }
 
 
 # Deployment
@@ -68,4 +96,3 @@ API endpoints are requested by Ajax in the frontend.
 # Built With
 * [NodeJS](https://nodejs.org/en/) - The Platform.
 * [Express](https://github.com/expressjs/express) - The web framework used.
-* [MongoDB](https://www.mysql.com/) - The main database for Admin control.
