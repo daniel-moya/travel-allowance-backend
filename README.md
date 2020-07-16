@@ -1,83 +1,76 @@
+# Description
+Create a small application which provides a monthly overview of the travel allowance for the employees of a
+company for the current year.
 
-### REQUISITOS
-## 1. MySQL DATABASE
-Debe Instalar previamente MySQL Database, puede user XAMPP si desea. Y posteriormente realizar la importacion de la base de datos con el script que se encuentra en este proyecto. 
+## Compensation Rates.
+People who commute by bike will get a compensation of € 0,33 per km per day. For distances between 5 to 10
+km the compensation will even double! However, for distances over 10 km employees prefer a different way
+of commuting. Some employees commute by bus or train, for which the compensation is € 0,25 per km per
+day. If you would commute by car the compensation would be € 0,10 per km per day.
 
-`keiron_app.sql`
+### Using the Compensation Rates API.
+Since the compensation can change over time, there’s an API GET endpoint that is hooked up to the Curious
+Inc. administration and returns the current compensation at
+https://api.staging.yeshugo.com/applicant/travel_types.
 
-Es importante hace enfasis que la base de datos debera llevar el nombre `keiron_app` de forma tal que el backend pueda hacer conexion con la misma. Ya que fue configurado para una base de datos con dicho nombre.
+## Features
+- Overview of monthly travel allowances per Employee.
+- The output of the application should be a CSV file which should contain the following columns:
+employee, transport, travelled distance, compensation for the entire month and the payment date.
 
+# DOCS 
+You can check the docs [here](https://github.com/daniel-moya/travel-allowance-frontend/blob/master/docs)
 
-Una vez importada la base datos de forma satisfactoria, se procece a la instalacion del proyecto Backend.
+## Requirements
+### 1. MySQL DATABASE
+You need a server with a MySQL Database Manager, such as XAMPP.  After the installation, you must create a new database with the name `travel_allowance`. Then import the the database backup file `travel_allowance.sql` inside the root of the project.
 
-
-## 2.[Keiron Backend](https://github.com/damr67/keiron-backend)
-Debe instalar la version del backend localmente. `keiron-backend`. Para ellos debe clonar el repositorio `keiron-backend`, cuyo link se encuentra en el titulo de este paso.
-
-
-
-## Antes de Iniciar
-Se requiere de Node Js
-### `npm install`
-
-## Iniciar Backend Localmente
-### `keiron-backend-$ npm run start`
-
-
-## 3.[Keiron Frontend](https://github.com/damr67/keiron-frontend)
-Debe instalar la version del frontend localmente. `keiron-frontend`. Para ellos debe clonar el repositorio `keiron-frontend`, cuyo link se encuentra en el titulo de este paso. 
-
-## Antes de Iniciar
-Se requiere de Node Js
-### `npm install`
+Please make sure the database name it's `travel_allowance` to be sure the backend will make connection with the DB. 
 
 
-## Antes de Iniciar
-Se requiere de Node Js
-### `npm install`
-
-## Para Iniciar Localmente
-### `npm run start`
-
-### IMPORTANTE 
-Los 3 servidores requieren estar activos en el mismo momento para que los datos de la aplicacion pueden fluir de forma Correcta
-- Server Base de Datos Mysql
-- Server Keiron Backend
-- Server Keiron Frontend
+After you imported the `trave_allowance.sql` into the DB successfully, please move to next step.
 
 
-### Description de Aplicativo
-## Test:
-- Debes crear una app en React + Node + MySql en la cual se pueda registrar y logear usuario (sin recuperación de contraseña) y en la que existan dos perfiles de usuario: Administrador y Usuario.
-- El perfil administrador solo tiene una tabla para gestionar tickets (Crud) en donde se los puede asignar a usuarios.
-- El perfil de usuario solo posee una lista de tickets asignados a el y un boton para pedirlos (setear el ticket_pedido).
-- El login de usuarios debe discriminar y redireccionar según su perfil.
-- Debes subir el proyecto a git y enviarnos las instrucciones para levantar el proyecto (incluye el script de SQL en el proyecto).
-- El proyecto cuenta con 3 Tablas:
-1. usuarios: id, id_tipouser, nombre, mail, pass
-2. ticket: id , id_user , ticket_pedido
-3. tipo_usuario: id, nombre
+### 2.[Travek Allowance Backend](https://github.com/daniel-moya/travel-allowance-backend)
+Clone the Backend repo. `travel-allowance-backend`. You can use the above link to the github repo.
+`git clone https://github.com/daniel-moya/travel-allowance-backend`
+`cd travel-allowance-backend`
+
+### Additional
+For this step you need:
+- Nodejs
+- npm
 
 
+### Install Dependencies
+`npm install`
 
-## Login
-Acceder a http://localhost:3000/login
+### Run the project locally
+`bash-$ npm run start`
 
-Cuentas Creadas
 
-|email|password|
-|:-------:|:--------:|
-| admin@gmail.com| admin|
-|admin2@gmail.com| admin|
-| keiron@keiron.com| keiron|
-| user@gmail.com | user|
-|user1@gmail.com| user|
-|user2@gmail.com| user|
-|user3@gmail.com| user|
-|user4@gmail.com| user|
+## 3.[Travel Allowance Frontend](https://github.com/daniel-moya/travel-allowance-frontend)
+Clone the Backend repo. `travel-allowance-frontend`. You can use the above link to the github repo.
+`git clone https://github.com/daniel-moya/travel-allowance-frontend`
+`cd travel-allowance-frontend
 
-# Register
-Acceder a http://localhost:3000/register
+### Additional
+For this step you need:
+- Nodejs
+- npm
+
+### Install Dependencies
+`npm install`
+
+
+### Run the project locally
+`bash-$ npm run start`
+
+### IMPORTANT
+You must run 3 servers at the same time.
+- Travel Allowance Backend (Default: http://localhost:5000/)
+- Travel Allowance Frontend (Default: http://localhost:3000/)
+- MySQL Database with `travel_allowance.sql`
 
 
 
